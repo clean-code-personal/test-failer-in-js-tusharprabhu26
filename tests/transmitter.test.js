@@ -12,15 +12,15 @@ function testTransmitInCelcius() {
   // Temperature above 100 celcius 
   transmitInCelcius(303.6);
   expect(transmissionFailureCount).to.equal(
-    1,
+    2,
     "Transmission failure count did not increment"
   );
 
   // Temperature exactly 100 celcius
   transmitInCelcius(212);
   expect(transmissionFailureCount).to.equal(
-    1,
-    "Transmission failure count did not increment"
+    2,
+    "Transmission failure count should not increment"
   );
 }
 
