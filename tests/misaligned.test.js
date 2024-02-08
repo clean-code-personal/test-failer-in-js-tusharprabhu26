@@ -14,14 +14,19 @@ colorCombinationsResult.forEach((colorCombination) =>
 expect(loggedOutput.length).equals(25);
 
 // Test for misalignments
-loggedOutput.forEach((colorCombination) => {
-  let colorParts = colorCombination.split("|");
-
-  expect(colorParts[0].length).equals(4); // This will fail if the numeric value is not aligned with the separator
-
-  expect(colorParts[1].length).equals(7); // This will fail iif the majorColor is not aligned with the separator
-
-  expect(colorParts[2].length).equals(7); // This will fail if the minorColor is not aligned with the separator
+let separatorPositions = [];
+loggedOutput.forEach((colorCombination, index) => {
+  let separatorIndices = [];
+  for (let i = 0; i < colorCombination.length; i++) {
+    if (colorCombination[i] === "|") {
+      separatorIndices.push(i);
+    }
+  }
+  if (index === 0) {
+    separatorPositions = separatorIndices;
+  } else {
+    expect(separatorIndices).to.deep.equal(separatorPositions);
+  }
 });
 
 console.log("All is well (maybe!)");
