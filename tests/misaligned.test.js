@@ -1,5 +1,16 @@
-import { generateColorCombinations } from "../misaligned.js";
+import {
+  generateColorCombinations,
+  generateColorNumber,
+} from "../misaligned.js";
 import { expect } from "chai";
+
+// Test for color number generation
+for (let i = 0; i < 5; i++) {
+  for (let j = 0; j < 5; j++) {
+    let colorNumber = generateColorNumber(i, j);
+    expect(colorNumber).to.be.within(1, 25); // This will fail because, currently range is (0, 24)
+  }
+}
 
 let colorCombinationsResult = generateColorCombinations();
 
