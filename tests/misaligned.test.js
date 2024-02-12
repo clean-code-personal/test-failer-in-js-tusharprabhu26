@@ -8,7 +8,7 @@ import { expect } from "chai";
 for (let i = 0; i < 5; i++) {
   for (let j = 0; j < 5; j++) {
     let colorNumber = generateColorNumber(i, j);
-    expect(colorNumber).to.be.within(1, 26); // 26 because it includes heading
+    expect(colorNumber).to.be.within(1, 25);
   }
 }
 
